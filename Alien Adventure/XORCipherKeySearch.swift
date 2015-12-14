@@ -23,13 +23,15 @@ extension Hero {
             decrypted = [UInt8]()
             
             for character in encryptedString {
-                // ADD CODE: perform decryption
-                print(character)
+                // Perform decryption
+                decrypted.append(character ^ x)
             }
             
             if let decryptedString = String(bytes: decrypted,
                 encoding: NSUTF8StringEncoding) where decryptedString == "udacity" {
-                    // ADD CODE: found match, now what?
+                    // Found match, now what?
+                    key = x
+                    break
             }
         }
         
