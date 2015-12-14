@@ -10,39 +10,20 @@ extension Hero {
     
     func leastValuableItem(inventory: [UDItem]) -> UDItem? {
         
-        var examinedValue = 10000
-        var chosenValue = 10000
-        var chosenItemArray = [UDItem]()
+        var leastValuableItem: UDItem? = nil
         
-        if inventory.count == 0 {
+        if inventory.count > 0 {
             
-            return nil
+            leastValuableItem = inventory[0]
             
-        } else {
-        
-            for UDItem in inventory {
-            
-                examinedValue = UDItem.baseValue
-                
-                if examinedValue < chosenValue {
-                    
-                    if chosenItemArray.count == 1 {
-                        
-                        chosenItemArray.removeAtIndex(0)
-                        
-                    }
-                    
-                    chosenItemArray.append(UDItem)
-                    chosenValue = UDItem.baseValue
-                    
+            for item in inventory {
+                if item.baseValue < leastValuableItem!.baseValue {
+                    leastValuableItem = item
                 }
-            
             }
-            
-            return chosenItemArray[0]
-        
         }
         
+        return leastValuableItem
     }
 }
 

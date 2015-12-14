@@ -59,10 +59,6 @@ extension Hero {
             
                 return true
             
-            } else {
-            
-                return false
-            
             }
         
         }
